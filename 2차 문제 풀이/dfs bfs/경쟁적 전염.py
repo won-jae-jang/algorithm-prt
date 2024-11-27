@@ -18,13 +18,10 @@ def bfs(graph):
                 temp.append((graph[i][j], (i, j), 0))
     temp.sort() #초기의 바이러스 전염 순서
     q = deque(temp) # [(type, (1, 2), time), (type, (2, 3), time) ..]
-    # print('q: ',q)
         
     while q:
         type, pos, time = q.popleft()
-        # print('pop: ', type, pos, time)
         vx, vy = pos[0], pos[1] #현재 바이러스 위치
-        # print(x, y, vx, vy, time, s)
         if x == vx + 1 and y == vy + 1:
             if time <= s:
                 return type
@@ -38,6 +35,5 @@ def bfs(graph):
                 if graph[nx][ny] == 0:
                     graph[nx][ny] = type
                     q.append((type, (nx, ny), time + 1))
-                    # print('input: ', (type, (nx, ny), time + 1))
 
 print(bfs(graph))
