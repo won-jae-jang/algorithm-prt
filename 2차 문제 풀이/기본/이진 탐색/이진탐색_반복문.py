@@ -7,7 +7,6 @@ def binary_search(array, target, start, end):
             end = mid - 1
         else:
             start = mid + 1
-            
     return None
 
 # 입력값
