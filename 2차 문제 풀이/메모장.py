@@ -1,16 +1,8 @@
-from bisect import bisect_left, bisect_right
+lst = [1, 3, 3, 2, 2, 1, 4, 1, 0, 6, 4, 7]
 
-words = ["frodo", "front", "frost", "frozen", "frame", "kakao"]
-words.sort()
-temp = [word for word in words if len(word) == 5]
-print(words)
-a = bisect_left(temp, "aaaao")
-b = bisect_right(temp, "zzzzo")
-print(a)
-print(b)
-# print('---')
-# print('frozen' > 'frozz')
+n, m = 3, 4
+result = []
+for i in range(n):
+    result.append(lst[i * m: i * m + m])
 
-# a = '??aaa'
-# b = a.replace('?', 'z')
-# print(b)
+print(result)
