@@ -1,33 +1,18 @@
 import sys
+from bisect import bisect_left, bisect_right
 
 input = sys.stdin.readline
 n, x = map(int, input().split())
 data = list(map(int, input().split()))
+data.sort()
 
-def binary_search(data, target, start, end):
-    while start <= end:
-        mid = (start + end) // 2
-        print('start, end, mid: ', start, end, mid)
-        if data[mid] == target:
-            return mid
-        elif data[mid] > target:
-            end = mid - 1
-        else:
-            start = mid + 1
-    return None
+def count_by_range(a, left_value, right_value):
+    left_side = bisect_left(a, left_value)
+    right_side = bisect_right(a, right_value)
+    return right_side - left_side
 
-count = 0
-while True:
-    print(data, x, 0, n)
-    result = binary_search(data, x, 0, n)
-    if result != None:
-        count += 1
-        n -= 1
-        del data[result]
-    else:
-        break
-
-if count != 0:
-    print(count)
-else:
+result = count_by_range(data, x, x)
+if result == 0:
     print(-1)
+else:
+    print(result)
