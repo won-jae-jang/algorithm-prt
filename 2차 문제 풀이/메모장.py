@@ -1,2 +1,3 @@
-for i in range(3, 0, -1):
-    print(i)
+lst = [1, 1, 2, 2]
+a = set(lst)
+print(len(a))
