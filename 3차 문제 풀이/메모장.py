@@ -1,6 +1,3 @@
-def c(a):
-    a += 1
-
-a = 3
-c(a)
-print(a)
+lst = [1, 2, 3]
+lst.append(4 + 5)
+print(lst)
