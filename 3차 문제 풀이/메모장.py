@@ -1,3 +1,6 @@
-lst = [1, 2, 3]
-lst.append(4 + 5)
-print(lst)
+graph = [0,0]
+def chagne(graph):
+    graph[1] = 1
+
+chagne(graph)
+print(graph)
