@@ -11,4 +11,4 @@ for i in data:
 #구간 합 계산(3번째 수 부터 4번째 수 까지)
 left = 3
 right = 4
-print(prefix_sum[right] - prefix_sum[left - 1])
+print(prefix_sum[right] - prefix_sum[left - 1]) #70
