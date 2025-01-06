@@ -1,32 +1,24 @@
 n = int(input())
-data = []
-words = []
+score = [] # (점수, 알파벳)
 
-#모든 단어의 특정 알파벳에 대해서 숫자로 바꿔주는 함수
-def change(words, alpha, num):
-    for i in range(n):
-        words[i] = words[i].replace(alpha, num)
-
-def get_score(words):
-    total = 0
-    for word in words:
-        total += int(word)
-    return total
+#특정 알파벳이 몇번째 자리 수인지에 따라 계산해주는 함수
+def cal(score, alphabet, number):
+    for i in range(len(score)):
+        if score[i][1] == alphabet:
+            score[i][0] += 10 ** (number - 1)
+            return
+    score.append([10 ** (number - 1), alphabet])
 
 for i in range(n):
     word = input()
-    words.append(word)
     for j in range(len(word)):
-        data.append((len(word) - j, word[j])) #자리수,  알파벳
+        cal(score, word[j], len(word) - j)
 
-data.sort(reverse=True) #높은 자리수의 알파벳이 앞에 놓이게끔 정렬
-process = [] #처리한 알파벳
-max_num = 9
-for number, alphabet in data:
-    #처리되지 않은 알파벳 이라면
-    if alphabet not in process:
-        process.append(alphabet)
-        change(words, alphabet, str(max_num))
-        max_num -= 1
+score.sort(reverse=True)
+result = 0
+number = 9
+for x, alphabet in score:
+    result += x * number
+    number -= 1
 
-print(get_score(words))
+print(result)
