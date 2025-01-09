@@ -1,3 +1,2 @@
-d = 'abc'
-d[0] = 'a'
-print(d)
+for i in range(3, 1, -1):
+    print(i)
