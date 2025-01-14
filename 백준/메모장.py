@@ -1,1 +1,4 @@
-lst = [1, 2, 3]
+l = 123
+
+for x in l:
+    print(x)
