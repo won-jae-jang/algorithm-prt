@@ -1,32 +1,40 @@
-import sys
-sys.setrecursionlimit(10**6)
-input = sys.stdin.readline
+T = int(input()) #테스트케이스의 개수
 
-def dfs(x, y):
+dx = [-1,1,0,0]
+dy = [0,0,-1,1]
 
-    dx = [0, 0, -1 ,1]
-    dy = [1, -1, 0, 0]
+def BFS(x,y):           
+    queue = [(x,y)]
+    matrix[x][y] = 0 # 방문처리
 
-    for i in range(4):
-        nx = x + dx[i]
-        ny = y + dy[i]
-        if (0 <= nx < m) and (0 <= ny < n) and graph[ny][nx] == 1:
-            graph[ny][nx] = 0
-            dfs(ny, nx)
+    while queue:
+        x,y = queue.pop(0)
 
-t = int(input())
-for _ in range(t):
-    m, n, k = map(int, input().split()) #가로(열), 세로(행), 배추 위치
-    graph = [[0 for _ in range(m)] for _ in range(n)]
-    for _ in range(k):
-        X, Y = map(int, input().split())
-        graph[Y][X] = 1 #배추
+        for i in range(4):
+            nx = x + dx[i]
+            ny = y + dy[i]
 
-    count = 0
-    for a in range(m):
-        for b in range(n):
-            if graph[b][a] == 1:
-                dfs(a, b)
-                count += 1
+            if nx < 0 or nx >= M or ny < 0 or ny >= N:
+                continue
 
-    print(count)
+            if matrix[nx][ny] == 1 :
+                queue.append((nx,ny))
+                matrix[nx][ny] = 0
+
+# 행렬만들기
+for i in range(T):
+    M, N, K = map(int,input().split())
+    matrix = [[0]*(N) for _ in range(M)]
+    cnt = 0
+
+    for j in range(K):
+        x,y = map(int, input().split())
+        matrix[x][y] = 1
+
+    for a in range(M):
+        for b in range(N):
+            if matrix[a][b] == 1:
+                BFS(a,b)
+                cnt += 1
+
+    print(cnt)
