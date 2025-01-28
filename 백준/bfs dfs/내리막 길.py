@@ -1,5 +1,5 @@
 import sys
-sys.setrecursionlimit(100000)
+sys.setrecursionlimit(250000)
 input = sys.stdin.readline
 
 m, n = map(int, input().split())
