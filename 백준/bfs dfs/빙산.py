@@ -9,11 +9,10 @@ for i in range(n):
 
 dx = [-1, 1, 0, 0]
 dy = [0, 0, -1, 1]
-visited = [[False] * m for _ in range(n)]
 
 #빙하 녹이기
 def melt(graph):
-    copy_graph = [[0] * m for _ in range(n)]
+    melt_graph = [[0] * m for _ in range(n)]
     for x in range(n):
         for y in range(m):
             count = 0
@@ -29,9 +28,10 @@ def melt(graph):
 
                 ice = graph[x][y] - count
                 if ice > 0:
-                    copy_graph[x][y] = ice
+                    melt_graph[x][y] = ice
+                    visited[x][y] = False #dfs 대상으로 인식
 
-    return copy_graph
+    return melt_graph
 
 
 def dfs(x, y):
@@ -45,9 +45,10 @@ def dfs(x, y):
 year = 0
 seperate = False #빙하가 둘로 분리되었는가
 while not seperate:
+    visited = [[True] * m for _ in range(n)]
     graph = melt(graph)
     year += 1
-    #Todo 녹은 빙하를 토대로 dfs 처리 (효율적으로)
+    
     group = 0
     for i in range(n):
         for j in range(m):
@@ -55,8 +56,11 @@ while not seperate:
                 group += 1
                 dfs(i, j)
 
-    if group == 2:
+    if group >= 2:
         seperate = True
+    #모든 빙하가 다 녹은 경우
+    elif group == 0:
+        break
 
 if seperate:
     print(year)
