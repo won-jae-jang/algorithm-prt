@@ -1,5 +1,4 @@
-lst = [False] * 10
-lst[0] = 'red'
+n, m = 4, 4
 
-if lst[0]:
-    print(1)
+visited = [[[0] * 2 for _ in range(m)] for _ in range(n)]
+print(visited)
