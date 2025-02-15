@@ -1,10 +1,3 @@
-from collections import deque
-import sys
-input = sys.stdin.readline
+lst = [[1, 2, 3], [4, 5, 6]]
 
-q = deque([]) #(중요도, target 인가)
-q.append((0, True))
-q.append((1, True))
-
-print(q[0])
-print(q[1])
+print(lst[0:2][2])
