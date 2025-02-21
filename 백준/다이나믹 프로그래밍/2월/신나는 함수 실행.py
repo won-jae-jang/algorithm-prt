@@ -6,6 +6,7 @@ def w(a, b, c):
         return 1
     if a > 20 or b > 20 or c > 20:
         return w(20, 20, 20)
+    #값이 이미 존재한다면 더 연산할 필요가 없음
     if dp[a][b][c]:
         return dp[a][b][c]
     if a < b and b < c:
