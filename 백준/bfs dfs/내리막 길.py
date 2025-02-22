@@ -7,7 +7,6 @@ graph = []
 for i in range(m):
     graph.append(list(map(int, input().split())))
 
-
 dx = [-1, 1, 0, 0]
 dy = [0, 0, -1, 1]
 visited = [[-1] * n for _ in range(m)]
