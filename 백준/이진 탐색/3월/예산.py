@@ -11,7 +11,7 @@ end = total_budget
 result = 0
 
 if sum(data) <= total_budget:
-    print(data[-1])
+    print(data[-1]) 
 
 else:
     while start <= end:
