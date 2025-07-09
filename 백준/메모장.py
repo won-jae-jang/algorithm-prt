@@ -1,2 +1,2 @@
-a = '5'
-print(a.isdigit())
+for i in range(3, 1):
+    print(i)
