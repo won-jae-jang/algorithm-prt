@@ -1,2 +1,4 @@
-for i in range(3, 1):
-    print(i)
+from collections import deque
+
+q = deque([1, 2, 3])
+print(q.popleft())
