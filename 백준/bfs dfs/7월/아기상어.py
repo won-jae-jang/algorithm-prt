@@ -50,7 +50,7 @@ def bfs(x, y):
     return eatable_fishes
 
 shark_size = 2 #아기 상어의 크기
-count = 0 #아기 상어가 먹은 물고기의 수
+width = 0 #아기 상어가 먹은 물고기의 수
 time = 0 #아기 상어 이동 시간
 while True:
     #bfs: 먹을 수 있는 물고기 들을 반환 (거리, x, y) 순으로
@@ -64,15 +64,15 @@ while True:
     else:
         fishes.sort()
         dist, fx, fy = fishes.pop(0)
-        count += 1 #물고기 먹은 개수 카운팅
+        width += 1 #물고기 먹은 개수 카운팅
         time += dist
         shark_x, shark_y = fx, fy #물고기 먹을 위치로 이동
         graph[fx][fy] = 0 #물고기 먹어 치우기
 
     #아기 상어 크기 커지는 조건
-    if count == shark_size:
+    if width == shark_size:
         shark_size += 1
-        count = 0
+        width = 0
 
 
 

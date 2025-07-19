@@ -15,9 +15,9 @@ def dfs(graph, visited, v):
             dfs(graph, visited, i)
             
 dfs(graph, visited, 1)
-count = 0
+width = 0
 for i in range(2, v + 1):
     if visited[i] == True:
-        count += 1
+        width += 1
 
-print(count)
+print(width)

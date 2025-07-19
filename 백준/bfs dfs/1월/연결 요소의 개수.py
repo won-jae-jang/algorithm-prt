@@ -17,10 +17,10 @@ def dfs(graph, v, visited):
         if not visited[i]:
             dfs(graph, i, visited)
 
-count = 0
+width = 0
 for i in range(1, N + 1):
     if not visited[i]:
-        count += 1
+        width += 1
         dfs(graph, i, visited)
         
-print(count)
+print(width)

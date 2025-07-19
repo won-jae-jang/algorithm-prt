@@ -32,19 +32,19 @@ def dfs(x, y):
             dfs(nx, ny)
 
 result = []
-count = 0 #영역의 개수
+width = 0 #영역의 개수
 
 for i in range(m):
     for j in range(n):
         #아직 방문하지 않았다면
         if graph[i][j] == 1:
-            count += 1 
+            width += 1
             dim = 1 #넓이
             dfs(i, j)
             result.append(dim)
             dim = 0
 
-print(count)
+print(width)
 result.sort()
 for x in result:
     print(x, end=' ')

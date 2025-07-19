@@ -15,7 +15,7 @@ for k in range(1, n + 1):
           for b in range(1, n + 1):
                graph[a][b] = min(graph[a][b], graph[a][k] + graph[k][b])
 
-count = 0
+width = 0
 for i in range(1, n + 1):
      temp = 0
      for j in range(1, n + 1):
@@ -23,6 +23,6 @@ for i in range(1, n + 1):
                temp += 1
 
      if temp == n:
-          count += 1
+          width += 1
 
-print(count)
+print(width)

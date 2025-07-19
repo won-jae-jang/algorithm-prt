@@ -10,13 +10,13 @@ def rotate(direction):
     direction -= 1 
     return direction if direction >= 0 else 3
 
-count = 0 #청소한 칸의 수
+width = 0 #청소한 칸의 수
 clean = [[False] * m for _ in range(n)] #청소 여부
 while True:
     #1. 현재 칸이 아직 청소되지 않은 경우, 현재 칸을 청소
     if graph[x][y] == 0 and not clean[x][y]:
         clean[x][y] = True
-        count += 1
+        width += 1
 
     cleanable = False #청소할 수 있는 공간이 있는가
     for i in range(4):
@@ -48,4 +48,4 @@ while True:
         if (0 <= nx < n) and (0 <= ny < m) and graph[nx][ny] == 0 and not clean[nx][ny]:
             x, y = nx, ny
         
-print(count)
+print(width)

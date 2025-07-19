@@ -16,18 +16,18 @@ else:
           mid = (start + end) // 2
 
           partial_sum = 0 #한개의 블루레이에 담겨있는 녹화 길이
-          count = 1 #사용한 블루레이 개수
+          width = 1 #사용한 블루레이 개수
           for x in data:
                #해당 블루레이에 녹화 강의를 더 넣을 수 있는 경우
                if partial_sum + x <= mid:
                     partial_sum += x          
                #해당 블루레이가 꽉찬 경우 새로운 블루레이 할당
                else:
-                    count += 1
+                    width += 1
                     partial_sum = x 
 
           #한개당 블루레이의 크기가 커서 여유가 있는 경우
-          if count <= m:
+          if width <= m:
                result = mid
                end = mid - 1
           else:

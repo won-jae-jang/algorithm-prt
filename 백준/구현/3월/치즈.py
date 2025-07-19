@@ -2,11 +2,11 @@ from collections import deque
 
 n, m = map(int, input().split())
 board = []
-count = 0 #치즈의 개수
+width = 0 #치즈의 개수
 for i in range(n):
     data = list(map(int, input().split()))
     board.append(data)
-    count += data.count(1) #치즈의 개수 카운트
+    width += data.count(1) #치즈의 개수 카운트
 
 dx = [0, 0, -1, 1]
 dy = [-1, 1, 0, 0]
@@ -45,7 +45,7 @@ while True:
     time += 1
     melt_count += melt 
     #녹은 치즈수와 초기 치즈수가 같으면 탈출
-    if melt_count == count:
+    if melt_count == width:
         print(time)
         print(melt)
         break

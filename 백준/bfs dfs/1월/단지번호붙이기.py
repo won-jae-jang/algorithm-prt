@@ -7,7 +7,7 @@ dx = [-1, 1, 0, 0]
 dy = [0, 0, -1, 1]
 numbering = 1
 def dfs(graph, x, y):
-    global count
+    global width
     if x < 0 or x >= n or y < 0 or y >= n:
         return
     
@@ -19,14 +19,14 @@ def dfs(graph, x, y):
             ny = y + dy[i]
             dfs(graph, nx, ny)
 
-count = 0
+width = 0
 result = []
 for i in range(n):
     for j in range(n):
         if graph[i][j] == 1:
             dfs(graph, i, j)
-            result.append(count)
-            count = 0
+            result.append(width)
+            width = 0
 
 print(len(result))
 result.sort()

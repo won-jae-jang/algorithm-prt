@@ -6,12 +6,12 @@ boxes = list(map(int, input().split()))
 cranes.sort(reverse=True)
 boxes.sort(reverse=True)
 
-count = 0
+width = 0
 if cranes[0] < boxes[0]:
-    count = -1
+    width = -1
 else:
     while boxes:
-        count += 1
+        width += 1
         for crane in cranes:
             if boxes and boxes[-1] > crane:
                 continue
@@ -20,4 +20,4 @@ else:
                     boxes.remove(box)
                     break
 
-print(count)
+print(width)

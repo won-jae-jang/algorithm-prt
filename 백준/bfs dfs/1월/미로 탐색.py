@@ -7,9 +7,9 @@ for i in range(n):
 
 dx = [-1, 1, 0, 0]
 dy = [0, 0, -1, 1]
-count = 1
+width = 1
 def bfs(x, y):
-    global count
+    global width
     q = deque()
     q.append((x, y))
 

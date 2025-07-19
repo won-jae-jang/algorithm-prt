@@ -5,7 +5,7 @@ input = sys.stdin.readline
 n = int(input())
 data = list(map(int, input().split()))
 data.sort()
-count = 0 #answer
+width = 0 #answer
 
 for idx in range(n):
      target = data[idx]
@@ -27,7 +27,7 @@ for idx in range(n):
           sum_value = data[start] + data[end]
 
           if sum_value == target:
-               count += 1
+               width += 1
                break
 
           if sum_value > target:
@@ -35,4 +35,4 @@ for idx in range(n):
           else:
                start += 1
 
-print(count)
+print(width)

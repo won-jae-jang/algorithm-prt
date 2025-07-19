@@ -13,16 +13,16 @@ def add_one(a, b):
         return True
     return False
 
-count = 1
+width = 1
 while a < b:
     #1을 추가하는 연산을 할 수 있다면
     if add_one(a, b):
         a = int(str(a) + '1')
     else:
         a *= 2
-    count += 1
+    width += 1
 
 if a == b:
-    print(count)
+    print(width)
 else:
     print(-1)

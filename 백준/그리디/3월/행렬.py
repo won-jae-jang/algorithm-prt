@@ -14,12 +14,12 @@ def reverse(array, x, y):
         for j in range(y, y + 3):
             array[i][j] = 0 if array[i][j] == 1 else 1
 
-count = 0 #뒤집는 횟수
+width = 0 #뒤집는 횟수
 for i in range(n - 2):
     for j in range(m - 2):
         if a[i][j] != b[i][j]:
             reverse(a, i, j)
-            count += 1
+            width += 1
 
 same = True #두 행렬이 같은지 여부 
 for i in range(n):
@@ -28,6 +28,6 @@ for i in range(n):
             same = False
 
 if same:
-    print(count)
+    print(width)
 else:
     print(-1)

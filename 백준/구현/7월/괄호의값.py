@@ -1,21 +1,36 @@
 str = input()
 
-def is_right(str):
-    type1_left = 0 # (
-    type2_left = 0 # [
-    for s in str:
-        if s == '(':
-            type1_left += 1
-        elif s == '[':
-            type2_left += 1
-        elif s == ')':
-            if type2_left >= 1 and type1_left == 0:
-                return False
-            type1_left -= 1
-        elif s == ']':
-            if type1_left >= 1 and type2_left == 0:
-                return False
-            type2_left -= 1
-    return True
+answer = 0
+tmp = 1
+stack = []
+for i in range(len(str)):
+    if str[i] == '(':
+        stack.append(str[i])
+        tmp *= 2
 
-print(is_right(str))
+    elif str[i] == '[':
+        stack.append(str[i])
+        tmp *= 3
+
+    elif str[i] == ')':
+        if not stack or stack[-1] == '[':
+            answer = 0
+            break
+        if str[i - 1] == '(':
+            answer += tmp
+        stack.pop()
+        tmp //= 2
+
+    elif str[i] == ']':
+        if not stack or stack[-1] == '(':
+            answer = 0
+            break
+        if str[i - 1] == '[':
+            answer += tmp
+        stack.pop()
+        tmp //= 3
+
+if stack:
+    print(0)
+else:
+    print(answer)

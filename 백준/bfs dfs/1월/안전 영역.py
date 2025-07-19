@@ -39,13 +39,13 @@ for height in range(min_height, max_height + 1):
 
     temp = copy.deepcopy(graph)
     rain(temp, height)
-    count = 0
+    width = 0
     for i in range(n):
         for j in range(n):
             if temp[i][j] != 0:
-                count += 1
+                width += 1
                 dfs(temp, i, j)
 
-    result = max(result, count)
+    result = max(result, width)
 
 print(result)

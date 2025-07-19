@@ -89,10 +89,10 @@ for _ in range(t):
     room[x1][y1] = -1
     room[x2][y2] = -1
 
-count = 0
+width = 0
 for i in range(r):
     for j in range(c):
         if room[i][j] >= 1:
-            count += room[i][j]
+            width += room[i][j]
 
-print(count)
+print(width)

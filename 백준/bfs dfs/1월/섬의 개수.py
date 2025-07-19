@@ -23,13 +23,13 @@ while True:
     for i in range(b):
         graph.append(list(map(int, input().split())))
 
-    count = 0
+    width = 0
     for i in range(b):
         for j in range(a):
             #해당 위치가 섬이라면
             if graph[i][j] == 1:
                 #dfs
                 dfs(i, j)
-                count += 1
+                width += 1
     
-    print(count)
+    print(width)

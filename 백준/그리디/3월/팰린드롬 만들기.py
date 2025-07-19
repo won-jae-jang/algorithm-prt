@@ -23,31 +23,31 @@ def is_available(name, data):
         return True
     
 prv = name[0]
-count = 1
+width = 1
 for i in range(1, len(name)):
     if name[i] == prv:
-        count += 1
+        width += 1
     else:
-        data.append((prv, count))
-        count = 1
+        data.append((prv, width))
+        width = 1
         prv = name[i]
 
 length = len(name) #이름의 길이
-data.append((prv, count))
+data.append((prv, width))
 result = ['z'] * length
 if is_available(name, data):
     idx = 0
-    for alphabet, count in data:
-        is_odd = True if count % 2 != 0 else False #홀수인가 
+    for alphabet, width in data:
+        is_odd = True if width % 2 != 0 else False #홀수인가
         #홀수인 경우 가운데 위치
         if is_odd:
             result[length // 2] = alphabet
-            count -= 1
-        while count != 0:
+            width -= 1
+        while width != 0:
             result[idx] = alphabet
             result[length - 1 - idx] = alphabet
             idx += 1
-            count -= 2
+            width -= 2
     for x in result:
         print(x, end='')
 else:

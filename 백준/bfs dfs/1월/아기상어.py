@@ -47,14 +47,14 @@ def bfs(x, y):
 
 baby_shark = 2 #아기 상어의 크기
 graph[x][y] = 0 
-count = 0 #아기 상어가 먹은 물고기 수
+width = 0 #아기 상어가 먹은 물고기 수
 time = 0
 while True:
 
     #상어가 자기의 크기수 만큼 물고기를 잡아먹은 경우
-    if baby_shark == count:
+    if baby_shark == width:
         baby_shark += 1
-        count = 0
+        width = 0
 
     result = bfs(x, y)
 
@@ -67,5 +67,5 @@ while True:
     nx, ny, distance = result.pop(0)
     x, y = nx, ny #상어의 위치 변경
     graph[x][y] = 0 #가장 짧은 경로의 물고기를 잡아먹음 
-    count += 1 #먹은 물고기 수 증가
+    width += 1 #먹은 물고기 수 증가
     time += distance

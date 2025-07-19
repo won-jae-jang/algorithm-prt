@@ -12,7 +12,7 @@ for _ in range(int(input())):
         else:
             q.append((data[i], False))            
 
-    count = 0 #몇번째로 인쇄되는가
+    width = 0 #몇번째로 인쇄되는가
     while True:
         
         important, is_target = q[0][0], q[0][1]
@@ -26,7 +26,7 @@ for _ in range(int(input())):
         #프린트 가능한 경우
         if printable:
             q.popleft()
-            count += 1
+            width += 1
             n -= 1 #문서의 개수 감소
             if is_target:
                 break
@@ -35,4 +35,4 @@ for _ in range(int(input())):
             q.popleft()
             q.append((important, is_target))
 
-    print(count)
+    print(width)

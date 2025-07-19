@@ -3,7 +3,7 @@ data = input()
 lst = []
 temp_digit = ''
 idx = -1 # - 연산자가 처음 나오는 위치 (빼기 연산자가 처음 등장하면 그 뒤로는 모두 음수 처리)
-count = 0 #연산자가 몇번 나왔는지 세기
+width = 0 #연산자가 몇번 나왔는지 세기
 for str in data:
     #숫자인 경우
     if str.isdigit():
@@ -12,9 +12,9 @@ for str in data:
     else:
         lst.append(int(temp_digit))
         temp_digit = ''
-        count += 1
+        width += 1
         if idx == - 1 and str == '-':
-            idx = count
+            idx = width
 
 lst.append(int(temp_digit))
 

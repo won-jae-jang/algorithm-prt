@@ -39,14 +39,14 @@ def bfs():
 
     return len(melt_cheeze) #녹인 치즈의 개수를 리턴    
 
-count = 0 #녹인 치즈의 수
+width = 0 #녹인 치즈의 수
 result = 0
 while True:
     visited = [[False] * m for _ in range(n)]
     melt = bfs()
     result += 1 #시간 증가
-    count += melt #녹인 치즈의 수 증가
+    width += melt #녹인 치즈의 수 증가
     #녹인 치즈의 수가 원래 치즈의 수와 같으면 종료
-    if count == cheeze:
+    if width == cheeze:
         print(result)
         break
