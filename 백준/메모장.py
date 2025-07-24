@@ -1,2 +1,3 @@
-a = list(input())
-print(a)
+stack = []
+if not stack:
+    print(1)
