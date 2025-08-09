@@ -1,8 +1,7 @@
-from collections import Counter
+from collections import deque
 
-ex_list = ['kim', 'kim', 'park', 'choi', 'kim', 'kim', 'kim', 'choi', 'park', 'choi']
-ex_counter = Counter(ex_list)
-# print(ex_counter) #Counter({'kim': 5, 'choi': 3, 'park': 2})
-result = dict(ex_counter)
-for i in result:
-    print(i, result[i])
+q = deque()
+q.extend([1, 2, 3])
+q.extend([4, 5, 6])
+q.rotate(1)
+print(q)
