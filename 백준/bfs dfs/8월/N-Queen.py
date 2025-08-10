@@ -1,38 +1,26 @@
 n = int(input())
-graph = [[0] * n for _ in range(n)]
-
-#퀸의 공격 경로: 상하좌우, 대각선: 좌상, 우상, 좌하, 우하
-dx = [-1, 1, 0, 0, -1, -1, 1, 1]
-dy = [0, 0, -1, 1, -1, 1, -1, 1]
+row = [0] * n
 
 result = 0
-def dfs(count):
+def dfs(x):
     global result
-    if count == n:
+    if x == n:
         result += 1
         return
-
-    for x in range(n):
-        for y in range(n):
-            #퀸을 배치할 수 있는 공간인 경우
-            if graph[x][y] == 0:
-                #simulation
-                if not attack(x, y):
-                    graph[x][y] = 1
-                    dfs(count + 1)
-                    graph[x][y] = 0
+    #x행 y 열에 대해서 탐색
+    for y in range(n):
+        #해당 행, 열의 위치가 다른 퀸을 공격하지 않는다면
+        if not attack(x, y):
+            row[x] = y
+            dfs(x + 1)
 
 #x, y 위치에 퀸을 설치할 경우 다른 퀸을 공격하는지 여부
 def attack(x, y):
-    for i in range(8):
-        nx = x + dx[i]
-        ny = y + dy[i]
-        while 0 <= nx < n and 0 <= ny < n:
-            #공격 경로에 다른 퀸이 있는 경우
-            if graph[nx][ny] != 0:
-                return True
-            nx += dx[i]
-            ny += dy[i]
+
+    for i in range(x):
+        #같은 열 상에 있는지, 혹은 대각선상에 있는지 체크 (행의 길이 = 열의 길이 -> 대각선)
+        if y == row[i] or abs(x - i) == abs(y - row[i]):
+            return True
 
     return False
 
