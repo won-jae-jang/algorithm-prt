@@ -1,2 +1,2 @@
-lst = [1, 2, 3]
-print(lst[4:])
+print(not 1)
+print(not 0)
