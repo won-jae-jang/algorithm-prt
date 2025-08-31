@@ -1,4 +1,3 @@
-lst = [1, 2, 3]
-for i in range(len(lst)):
-    print(lst[i])
-    lst.append(0)
+a = '000'
+a[0] = '1'
+print(a)
