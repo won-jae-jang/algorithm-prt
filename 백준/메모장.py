@@ -1,9 +1,3 @@
-arr = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-]
-
-lst = []
-lst.append([row[0] for row in arr])
-print(lst)
+a, b, c, d, e = map(int, input().split())
+sum_value = a ** 2 + b ** 2 + c ** 2 + d ** 2 + e ** 2
+print(sum_value % 10)
